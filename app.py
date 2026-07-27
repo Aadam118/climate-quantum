@@ -66,9 +66,10 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 
-API_URL = "http://127.0.0.1:8000/predict_aqi"
-N_QUBITS = 7
+#API_URL = "http://127.0.0.1:8000/predict_aqi"
+API_URL = "https://qai-climate-analysis.onrender.com/predict_aqi"
 
+N_QUBITS = 7
 
 # ----------------------------------------------------------------------------
 # CUSTOM CSS — dark, futuristic, "hackathon-winning" aesthetic
@@ -437,7 +438,7 @@ def speak_announcement(text: str, run_id: int):
     )
 
 
-def call_predict_api(payload: dict, timeout: float = 6.0):
+def call_predict_api(payload: dict, timeout: float = 120.0):
     """
     Call the FastAPI backend. Returns (result_dict_or_None, error_message_or_None).
     Handles connection failure, timeouts, and bad HTTP status codes gracefully.
