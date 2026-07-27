@@ -8,3 +8,5 @@ plotly
 matplotlib
 numpy
 pandas
+joblib
+scikit-learn
