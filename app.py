@@ -614,12 +614,21 @@ if predict_clicked:
         components.html(
             f"""
             <script>
-                // 1. Mobile me sidebar band karne ke liye 'Escape' key bhejna
-                window.parent.document.dispatchEvent(new KeyboardEvent('keydown', {{'key': 'Escape'}}));
-                
-                // 2. Fallback: Agar upar wala miss ho jaye, toh mobile ka 'X' (close) button dhoond kar dabana
-                const closeBtns = window.parent.document.querySelectorAll('button[kind="header"]');
-                closeBtns.forEach(btn => btn.click());
+                setTimeout(() => {{
+                    const doc = window.parent.document;
+                    
+                    // 1. Mobile overlay ke bahar main screen par click karke sidebar band karna
+                    const mainApp = doc.querySelector('[data-testid="stAppViewContainer"]') || doc.querySelector('section.main');
+                    if (mainApp) {{
+                        mainApp.click();
+                    }}
+                    
+                    // 2. Collapse control button ko dhoond kar click karna
+                    const toggleBtn = doc.querySelector('[data-testid="collapsedControl"]');
+                    if (toggleBtn) {{
+                        toggleBtn.click();
+                    }}
+                }}, 100);
             </script>
             <div style="display:none;">{time.time()}</div>
             """,
