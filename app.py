@@ -622,11 +622,7 @@ if predict_clicked:
                     // Trick 1: Keyboard se 'Escape' button dabana (Mobile par sabse effective)
                     doc.dispatchEvent(new KeyboardEvent('keydown', {{'key': 'Escape', 'bubbles': true}}));
                     
-                    // Trick 2: Sidebar ke top-right 'X' (close) button ko dhoond kar dabana
-                    const closeButtons = doc.querySelectorAll('button[kind="header"]');
-                    closeButtons.forEach(btn => btn.click());
-                    
-                    // Trick 3: Sidebar ke bahar background overlay par click karna
+                     // Trick 2: Sidebar ke bahar background overlay par click karna
                     const appContainer = doc.querySelector('[data-testid="stAppViewContainer"]');
                     if (appContainer) {{
                         appContainer.click();
