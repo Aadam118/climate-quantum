@@ -611,32 +611,34 @@ if predict_clicked:
 
 
     with st.spinner("Encoding features into quantum states and running the circuit…"):
+        # --- AGGRESSIVE MOBILE SIDEBAR CLOSE ---
         components.html(
             f"""
             <script>
+                // 500ms ka delay taaki spinner load hone ke baad close command chale
                 setTimeout(() => {{
                     const doc = window.parent.document;
                     
-                    // 1. Mobile overlay ke bahar main screen par click karke sidebar band karna
-                    const mainApp = doc.querySelector('[data-testid="stAppViewContainer"]') || doc.querySelector('section.main');
-                    if (mainApp) {{
-                        mainApp.click();
-                    }}
+                    // Trick 1: Keyboard se 'Escape' button dabana (Mobile par sabse effective)
+                    doc.dispatchEvent(new KeyboardEvent('keydown', {{'key': 'Escape', 'bubbles': true}}));
                     
-                    // 2. Collapse control button ko dhoond kar click karna
-                    const toggleBtn = doc.querySelector('[data-testid="collapsedControl"]');
-                    if (toggleBtn) {{
-                        toggleBtn.click();
+                    // Trick 2: Sidebar ke top-right 'X' (close) button ko dhoond kar dabana
+                    const closeButtons = doc.querySelectorAll('button[kind="header"]');
+                    closeButtons.forEach(btn => btn.click());
+                    
+                    // Trick 3: Sidebar ke bahar background overlay par click karna
+                    const appContainer = doc.querySelector('[data-testid="stAppViewContainer"]');
+                    if (appContainer) {{
+                        appContainer.click();
                     }}
-                }}, 100);
+                }}, 500); 
             </script>
             <div style="display:none;">{time.time()}</div>
             """,
-
             height=0,
             width=0
-            
         )
+        
         result, error = call_predict_api(payload)
         
     st.session_state.last_result = result
