@@ -63,12 +63,13 @@ class UserInput(BaseModel):      # menu card h
     crop_burning_season: int
     season_name: str         # summer,winter,monsoon,post_monsoon
     
-# prediction (api route)
-@app.post("/predict_aqi")
+
 @app.get("/health")
 def health_check():
     return {"status": "active", "message": "Server is awake!"}
 
+# prediction (api route)
+@app.post("/predict_aqi")
 def predict(data: UserInput):
     try:
         season = data.season_name.lower()
