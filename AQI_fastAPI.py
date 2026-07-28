@@ -65,6 +65,10 @@ class UserInput(BaseModel):      # menu card h
     
 # prediction (api route)
 @app.post("/predict_aqi")
+@app.get("/health")
+def health_check():
+    return {"status": "active", "message": "Server is awake!"}
+
 def predict(data: UserInput):
     try:
         season = data.season_name.lower()
