@@ -66,7 +66,7 @@ class UserInput(BaseModel):      # menu card h
 
 @app.get("/health")
 def health_check():
-    return {"status": "active", "message": "Server is awake!"}
+    return {"status": "active", "message": "Server is running perfectly."}
 
 # prediction (api route)
 @app.post("/predict_aqi")
