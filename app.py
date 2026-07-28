@@ -28,6 +28,7 @@ import streamlit.components.v1 as components
 import matplotlib.pyplot as plt
 import plotly.graph_objects as go
 import streamlit.components.v1 as components
+import time
 
 # PennyLane is optional at runtime — the circuit diagram is a *visual mock*
 # of the backend's real 7-qubit circuit, not a live inference call.
@@ -611,14 +612,18 @@ if predict_clicked:
 
     with st.spinner("Encoding features into quantum states and running the circuit…"):
         components.html(
-            """
+            f"""
             <script>
-            const sidebarToggle = window.parent.document.querySelector('[data-testid="collapsedControl"]')
-            if (sidebarToggle) {
-                sidebarToggle.click();
-            }
+                // 1. Mobile me sidebar band karne ke liye 'Escape' key bhejna
+                window.parent.document.dispatchEvent(new KeyboardEvent('keydown', {{'key': 'Escape'}}));
+                
+                // 2. Fallback: Agar upar wala miss ho jaye, toh mobile ka 'X' (close) button dhoond kar dabana
+                const closeBtns = window.parent.document.querySelectorAll('button[kind="header"]');
+                closeBtns.forEach(btn => btn.click());
             </script>
+            <div style="display:none;">{time.time()}</div>
             """,
+
             height=0,
             width=0
             
