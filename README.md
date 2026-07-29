@@ -1,4 +1,4 @@
-The final trained model weights (aqi_qml_model.pth) and the data scaler (scaler.pkl) were exported post trained and are integrated directly into the FastAPI backend for real time inference.
+climate-quantum.ipynb : The final trained model weights (aqi_qml_model.pth) and the data scaler (scaler.pkl) were exported post trained and are integrated directly into the FastAPI backend for real time inference.
 
 
 
