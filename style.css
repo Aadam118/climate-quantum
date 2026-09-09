@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;800;900&family=Rajdhani:wght@500;600;700&display=swap');
+
+/* ============================================================
+   PROJECTOR / DIGITAL-BOARD SAFE THEME
+   Solid black background, no gradients, high-contrast text,
+   heavier font weights for legibility from a distance.
+   ============================================================ */
+
+html, body, [class*="css"] {
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 500;
+}
+
+.stApp {
+    background: #050505;
+    color: #FFFFFF;
+}
+
+/* Sidebar */
+section[data-testid="stSidebar"] {
+    background: #0a0a0a;
+    border-right: 2px solid #FFD700;
+}
+
+/* Headline / title styling */
+.quantum-title {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 800;
+    font-size: 2.6rem;
+    color: #FFD700;
+    letter-spacing: 1px;
+    margin-bottom: 0;
+}
+.quantum-subtitle {
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 600;
+    color: #FFFFFF;
+    font-size: 1.05rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: -6px;
+}
+
+/* Cards — solid dark panels, gold border, no blur (crisper on a board) */
+.glass-card {
+    background: #111111;
+    border: 2px solid #FFD700;
+    border-radius: 14px;
+    padding: 1.4rem 1.6rem;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.6);
+    margin-bottom: 1rem;
+}
+
+.section-header {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 800;
+    font-size: 1.05rem;
+    color: #FFD700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    border-bottom: 2px solid #FFD700;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Buttons — bright, unmissable from the back of an auditorium */
+div.stButton > button {
+    width: 100%;
+    background: #FF6B00;
+    color: #FFFFFF;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 800;
+    letter-spacing: 1px;
+    border: 2px solid #FFFFFF;
+    border-radius: 10px;
+    padding: 0.7rem 0;
+    transition: all 0.2s ease;
+}
+div.stButton > button:hover {
+    background: #FF3B30;
+    color: #FFFFFF;
+    border-color: #FFD700;
+    transform: translateY(-2px);
+}
+
+/* Metric-like AQI display */
+.aqi-display {
+    border-radius: 18px;
+    padding: 2rem;
+    text-align: center;
+    border: 2px solid #FFFFFF;
+}
+.aqi-number {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 4.2rem;
+    font-weight: 900;
+    line-height: 1;
+    margin: 0;
+}
+.aqi-label {
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
+    font-size: 1.3rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+.aqi-category {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 800;
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+    margin-top: 0.4rem;
+}
+
+hr {
+    border-color: #FFD700;
+}
+
+.footer-note {
+    text-align: center;
+    color: #CCCCCC;
+    font-weight: 500;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    margin-top: 2rem;
+}
+
+/* Streamlit metric widgets — bump contrast/weight to match the theme */
+[data-testid="stMetricValue"] {
+    color: #FFFFFF;
+    font-weight: 700;
+}
+[data-testid="stMetricLabel"] {
+    color: #FFD700;
+    font-weight: 600;
+}
